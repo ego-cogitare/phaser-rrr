@@ -1,10 +1,11 @@
-import assets from './AssetsPreload';
+import assets from './Assets';
 import config from './Config';
+import Car from './models/Car';
 
 export default class Game {
 
   constructor() {
-    this.game = window.game = new Phaser.Game(config.screenWidth, config.screenHeight, Phaser.CANVAS, 'RRR', { preload: this.preload, create: this.create, update: this.update, render: this.render });
+    this.game = new Phaser.Game(config.screenWidth, config.screenHeight, Phaser.AUTO, 'RRR', { preload: this.preload, create: this.create, update: this.update, render: this.render });
   }
 
   preload() {
@@ -18,10 +19,12 @@ export default class Game {
 
     this.game.stage.backgroundColor = config.backgroundColor;
 
-    let tank = window.tank = this.game.add.sprite(250, 250, 'player');
-    tank.animations.add('tank');
-    tank.animations.add('bang', [0, 1, 2, 3, 4]);
-    // tank.animations.play('tank', 20, true);
+    this.tank = new Car();
+
+    this.tank.model.inputEnabled = true;
+    this.tank.model.events.onInputDown.add(() => {
+      this.tank.kill();
+    }, this);
 
     //  Make our game world 2000x2000 pixels in size (the default is to match the game size)
     this.game.world.setBounds(0, 0, 2000, 2000);
@@ -29,17 +32,21 @@ export default class Game {
 
   update() {
     if (this.cursors.up.isDown) {
-      this.game.camera.y -= 14;
+      this.tank.model.y -= 5;
+      // this.game.camera.y -= 14;
     }
     else if (this.cursors.down.isDown) {
-      this.game.camera.y += 14;
+      this.tank.model.y += 5;
+      // this.game.camera.y += 14;
     }
 
     if (this.cursors.left.isDown) {
-      this.game.camera.x -= 14;
+      this.tank.model.x -= 5;
+      // this.game.camera.x -= 14;
     }
     else if (this.cursors.right.isDown) {
-      this.game.camera.x += 14;
+      this.tank.model.x += 5;
+      // this.game.camera.x += 14;
     }
   }
 
