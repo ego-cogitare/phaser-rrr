@@ -3,5 +3,5 @@ export default {
   // screenHeight: document.body.clientHeight
   screenWidth: 1024,
   screenHeight: 768,
-  backgroundColor: '#999'
+  backgroundColor: '#000'
 };

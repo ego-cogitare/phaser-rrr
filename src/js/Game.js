@@ -20,14 +20,14 @@ export default class Game {
     this.game.stage.backgroundColor = config.backgroundColor;
 
     this.tank = new Car();
-
-    this.tank.model.inputEnabled = true;
-    this.tank.model.events.onInputDown.add(() => {
-      this.tank.kill();
-    }, this);
+    //
+    // this.tank.model.inputEnabled = true;
+    // this.tank.model.events.onInputDown.add(() => {
+    //   this.tank.kill();
+    // }, this);
 
     //  Make our game world 2000x2000 pixels in size (the default is to match the game size)
-    this.game.world.setBounds(0, 0, 2000, 2000);
+    // this.game.world.setBounds(0, 0, 2000, 2000);
   }
 
   update() {
