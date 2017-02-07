@@ -16,9 +16,9 @@ export default class {
      * Set splash screen
      */
     game.add.tween(image)
-      .to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true, 3000)
+      .to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true, 300)
       .onComplete.add(() => {
-        game.state.start("StartMenu");
+        game.state.start('PlayersCount');
       });
   }
 };

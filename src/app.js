@@ -1,20 +1,22 @@
 import Config from './js/Config';
 import SplashScreen from './js/states/SplashScreen';
-import StartMenu from './js/states/StartMenu';
+import PlayersCount from './js/states/PlayersCount';
+import SelectDriver from './js/states/SelectDriver';
 
 /**
  * [game description]
  * @type {[type]}
  */
-const game = window.game = new Phaser.Game(Config.screenWidth, Config.screenHeight, Phaser.AUTO, 'RRR');
+window.game = new Phaser.Game(Config.screenWidth, Config.screenHeight, Phaser.AUTO, 'RRR');
 
 /**
  * Game screens
  */
-game.state.add("SplashScreen", SplashScreen);
-game.state.add("StartMenu", StartMenu);
+game.state.add('SplashScreen', SplashScreen);
+game.state.add('PlayersCount', PlayersCount);
+game.state.add('SelectDriver', SelectDriver);
 
 /**
  * Set active screen
  */
-game.state.start("SplashScreen");
+game.state.start('SplashScreen');

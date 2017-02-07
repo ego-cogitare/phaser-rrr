@@ -5,6 +5,15 @@ export default [
   },
 
   {
+    type: 'image',
+    params: [ 'complexity-01', 'assets/gfx/ComplexityMenu/img-01.png' ]
+  },
+  {
+    type: 'image',
+    params: [ 'complexity-02', 'assets/gfx/ComplexityMenu/img-02.png' ]
+  },
+
+  {
     type: 'spritesheet',
     params: [ 'tank', 'assets/sprites/tank.png', 141, 81, 24 ]
   },
