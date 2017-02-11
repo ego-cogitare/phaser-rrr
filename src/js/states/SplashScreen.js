@@ -12,7 +12,7 @@ export default class {
 
   create() {
     this.assetsLoaded();
-    
+
     game.stage.backgroundColor = Config.backgroundColor;
     const image = game.add.image(0, 0, 'splash-01');
 
@@ -28,10 +28,9 @@ export default class {
 
   assetsLoaded() {
     console.log(
-        '%c Assets preloaded in '
-        + Number((Date.now() - this.preloadingStart) / 1000)
-        + ' sec',
-        'color: #1256A9; font-weight: bold'
+      '%cAssets preloaded in %s sec',
+      'color: #1256A9; font-weight: bold',
+      Number((Date.now() - this.preloadingStart) / 1000)
     );
   }
 };
