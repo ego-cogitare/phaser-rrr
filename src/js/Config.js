@@ -1,7 +1,7 @@
 export default {
   // screenWidth: document.body.clientWidth,
   // screenHeight: document.body.clientHeight
-  screenWidth: 1024,
-  screenHeight: 768,
+  screenWidth: 768,
+  screenHeight: 662,
   backgroundColor: '#000'
 };

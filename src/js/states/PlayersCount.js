@@ -8,16 +8,16 @@ export default class {
 
   constructor() {
     game.settings = game.settings || {};
-    Object.assign(game.settings, { players: 1 });
+    Object.assign(game.settings, { playersCount: 1 });
 
     this.skullPositions = {
       '1': {
-        x: 150,
-        y: 400,
+        x: 80,
+        y: 340,
       },
       '2': {
-        x: 150,
-        y: 540,
+        x: 80,
+        y: 460,
       }
     };
   }
@@ -38,17 +38,17 @@ export default class {
     const enterButton = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 
     upButton.onDown.add((e) => {
-      if (++game.settings.players > 2) {
-        game.settings.players = 1;
+      if (++game.settings.playersCount > 2) {
+        game.settings.playersCount = 1;
       }
-      this.initskull(game.settings.players);
+      this.initskull(game.settings.playersCount);
     });
 
     downButton.onDown.add((e) => {
-      if (--game.settings.players < 1) {
-        game.settings.players = 2;
+      if (--game.settings.playersCount < 1) {
+        game.settings.playersCount = 2;
       }
-      this.initskull(game.settings.players);
+      this.initskull(game.settings.playersCount);
     });
 
     /**
@@ -73,6 +73,6 @@ export default class {
     this.skull = game.add.sprite(0, 0, 'players-count-02');
     this.skull.width = 100;
     this.skull.height = 82;
-    this.initskull(game.settings.players);
+    this.initskull(game.settings.playersCount);
   }
 };

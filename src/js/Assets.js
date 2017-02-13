@@ -1,24 +1,28 @@
 export default [
   {
+    type: 'bitmapFont',
+    params: [ 'font', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml' ]
+  },
+  {
     type: 'image',
-    params: [ 'splash-01', 'assets/gfx/SplashScreen/img-01.png' ]
+    params: [ 'splash-01', 'assets/gfx/SplashScreen/bg-3x.png' ]
   },
 
   {
     type: 'image',
-    params: [ 'players-count-01', 'assets/gfx/PlayersCount/img-01.png' ]
+    params: [ 'players-count-01', 'assets/gfx/PlayersCount/bg-3x.png' ]
   },
   {
     type: 'image',
-    params: [ 'players-count-02', 'assets/gfx/PlayersCount/img-02.png' ]
+    params: [ 'players-count-02', 'assets/gfx/PlayersCount/skull-3x.png' ]
   },
 
   {
-    type: 'spritesheet',
-    params: [ 'tank', 'assets/sprites/tank.png', 141, 81, 24 ]
+    type: 'image',
+    params: [ 'driver-select-01', 'assets/gfx/DriverSelect/bg-3x.png' ]
   },
   {
     type: 'spritesheet',
-    params: [ 'bang', 'assets/sprites/bang.png', 145, 162, 5 ]
+    params: [ 'characters', 'assets/sprites/characters/3x.png', 204, 204, 18 ]
   },
 ];
