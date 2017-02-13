@@ -6,11 +6,11 @@ export default [
 
   {
     type: 'image',
-    params: [ 'complexity-01', 'assets/gfx/ComplexityMenu/img-01.png' ]
+    params: [ 'players-count-01', 'assets/gfx/PlayersCount/img-01.png' ]
   },
   {
     type: 'image',
-    params: [ 'complexity-02', 'assets/gfx/ComplexityMenu/img-02.png' ]
+    params: [ 'players-count-02', 'assets/gfx/PlayersCount/img-02.png' ]
   },
 
   {

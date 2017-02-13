@@ -20,7 +20,7 @@ export default class {
      * Set splash screen
      */
     game.add.tween(image)
-      .to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true, 2000)
+      .to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true, 3000)
       .onComplete.add(() => {
         game.state.start('PlayersCount');
       });

@@ -62,7 +62,7 @@ export default class {
      * Add background image
      * @type {[type]}
      */
-    const image = game.add.image(0, 0, 'complexity-01');
+    const image = game.add.image(0, 0, 'players-count-01');
     image.width = config.screenWidth;
     image.height = config.screenHeight;
 
@@ -70,7 +70,7 @@ export default class {
      * Add pointer (skull)
      * @type {[type]}
      */
-    this.skull = game.add.sprite(0, 0, 'complexity-02');
+    this.skull = game.add.sprite(0, 0, 'players-count-02');
     this.skull.width = 100;
     this.skull.height = 82;
     this.initskull(game.settings.players);

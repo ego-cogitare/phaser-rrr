@@ -1,6 +1,5 @@
 export default class {
   preload() {
-    
   }
 
   create() {
