@@ -3,8 +3,14 @@ import characters from '../../config/characters';
 export default class {
 
   constructor() {
-    // Get and clone awailable characters to select
-    this.characters = JSON.parse(JSON.stringify(characters.slice(0, 7)));
+    this.availCharIds = [
+      0, 12, 13, 14, 15, 16, 17
+    ];
+
+    // Get and clone available characters to select
+    this.characters = characters.filter((character) => {
+      return this.availCharIds.indexOf(character.id) !== -1;
+    });
 
     this.characterId = 0;
 
