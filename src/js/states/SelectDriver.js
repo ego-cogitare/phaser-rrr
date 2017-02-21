@@ -4,8 +4,14 @@ import planetes from '../../config/planetes';
 export default class {
 
   constructor() {
-    // Get and clone awailable characters to select
-    this.characters = JSON.parse(JSON.stringify(characters));
+    this.availCharIds = [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+    ];
+
+    // Get and clone available characters to select
+    this.characters = characters.filter((character) => {
+      return this.availCharIds.indexOf(character.id) !== -1;
+    });
 
     this.characterId = 0;
 
