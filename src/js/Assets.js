@@ -23,6 +23,6 @@ export default [
   },
   {
     type: 'spritesheet',
-    params: [ 'characters', 'assets/sprites/characters/3x.png', 204, 204, 18 ]
+    params: [ 'characters', 'assets/sprites/characters/3x.png', 204, 204, 21 ]
   },
 ];

@@ -1,10 +1,11 @@
 import characters from '../../config/characters';
+import planetes from '../../config/planetes';
 
 export default class {
 
   constructor() {
     // Get and clone awailable characters to select
-    this.characters = JSON.parse(JSON.stringify(characters.slice(0, 7)));
+    this.characters = JSON.parse(JSON.stringify(characters));
 
     this.characterId = 0;
 
@@ -18,6 +19,8 @@ export default class {
       jumping: 'Jumping',
       topSpeed: 'Top speed',
       cornering: 'Cornering',
+      armor: 'Armor',
+      weapon: 'Weapon'
     };
 
     return paramsMap[param];
@@ -68,12 +71,20 @@ export default class {
     this.textPlanet = game.add.bitmapText(270, 410, 'font', '', 20);
 
     this.textParams = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       this.textParams.push(game.add.bitmapText(270, 525 - i * 25, 'font', '', 20));
     }
 
     // Show current (default) character
     this.switchCharacter(0);
+  }
+
+  planeteByCharacter(character) {
+    return planetes.filter((planete) => planete.id === character.planeteId)[0];
+  }
+
+  stringifyCharParam(character, param) {
+    return '+' + character.parametres[param] + ' ' + this.mapCharacterParam(param);
   }
 
   switchCharacter(direction) {
@@ -95,16 +106,16 @@ export default class {
     const character = this.characters[this.characterId];
 
     // Set character avatar
-    this.playerDriver.frame = character.id;
+    this.playerDriver.frame = character.sprite;
 
     // Display character information (name, parametres, etc)
     this.textCharacterName.setText(character.name);
-    this.textPlanet.setText(character.planet);
+    this.textPlanet.setText(this.planeteByCharacter(character).name);
 
     this.textParams.forEach((paramText) => paramText.setText(''));
-    const charParams = Object.keys(this.characters[this.characterId].parametres);
+    const charParams = Object.keys(character.parametres);
     charParams.forEach((param, key) => {
-      this.textParams[key].setText('+1 ' + this.mapCharacterParam(param));
+      this.textParams[key].setText(this.stringifyCharParam(character, param));
     });
   }
 };
