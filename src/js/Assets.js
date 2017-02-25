@@ -25,4 +25,8 @@ export default [
     type: 'spritesheet',
     params: [ 'characters', 'assets/sprites/characters/3x.png', 204, 204, 21 ]
   },
+  {
+    type: 'spritesheet',
+    params: [ 'planetes', 'assets/sprites/planetes/3x.png', 186, 186, 12 ]
+  },
 ];

@@ -69,8 +69,14 @@ export default class {
     });
 
     game.add.image(0, 0, 'driver-select-01');
+
+    // Add character avatar sprite
     this.playerDriver = game.add.sprite(40, 355, 'characters');
     this.playerDriver.frame = this.characters[this.characterId].id;
+
+    // Add planete sprite
+    this.planete = game.add.sprite(290, 65, 'planetes');
+    this.planete.frame = this.planeteByCharacter(this.characters[this.characterId]).sprite;
 
     this.textPlayer = game.add.bitmapText(390, 340, 'font', 'Player 1', 20);
     this.textCharacterName = game.add.bitmapText(270, 380, 'font', '', 20);
@@ -93,6 +99,24 @@ export default class {
     return '+' + character.parametres[param] + ' ' + this.mapCharacterParam(param);
   }
 
+  switchPlanete(direction) {
+    if (direction > 0) {
+      // this.planete.x = -500;
+    }
+    if (direction < 0) {
+      this.planete.x = 800;
+    }
+
+    const id = setInterval(() => {
+      if (Math.abs(290 - this.planete.x) <= 2) {
+        clearInterval(id);
+      }
+      else {
+        this.planete.x += 2;
+      }
+    }, 1);
+  }
+
   switchCharacter(direction) {
     if (direction > 0) {
       ++this.characterId;
@@ -111,8 +135,13 @@ export default class {
     // Get selected character config
     const character = this.characters[this.characterId];
 
-    // Set character avatar
+    // Set character sprite
     this.playerDriver.frame = character.sprite;
+
+    // Set planete sprite
+    this.planete.frame = this.planeteByCharacter(character).sprite;
+    // Animate planete to view port
+    this.switchPlanete(direction);
 
     // Display character information (name, parametres, etc)
     this.textCharacterName.setText(character.name);
